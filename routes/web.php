@@ -30,6 +30,8 @@ Route::middleware(['check_users_exist'])->group(function () {
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+    Route::get('/edit_user', [UserController::class, 'edit_user'])->name('edit.user');
+    Route::post('/user_update', [UserController::class, 'user_update'])->name('user.update');
     Route::resources([
         'user'          => UserController::class,
         'category'      => CategoryController::class,

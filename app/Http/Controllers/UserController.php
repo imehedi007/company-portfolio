@@ -82,4 +82,28 @@ class UserController extends Controller
         User::find($user->id)->delete();
         return back()->with('succ','User removed');
     }
+
+    /**
+     * Display the user information for edit.
+     */
+
+
+    public function edit_user()
+    { 
+        return view('backend.pages.Users.edit_user');
+    }
+
+    public function user_update(Request $request, string $id)
+    {
+        Photo::upload($request->profile,'uploads/users','USER',[500,500]);
+
+        User::find($id)->update([
+            'user_id'        =>  1, //User ID Will be added
+            'profile'        =>  Photo::$profile,
+            'name'           =>  $request->name,
+            'email'          =>  $request->email,
+            'password'       =>  $request->password,
+        ]);
+        return back();
+    }
 }

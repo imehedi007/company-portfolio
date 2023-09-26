@@ -31,7 +31,7 @@
                 </a>
             </li>
             <li><a class="has-arrow ai-icon" href="{{ route('testimonial.index') }}">
-                    <i class="fa fa-globe"></i>
+                    <i class="fa fa-certificate"></i>
                     <span class="nav-text">Testimonial</span>
                 </a>
             </li>
